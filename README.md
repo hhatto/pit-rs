@@ -4,6 +4,11 @@
 
 ## Usage
 
+```toml
+[dependencies]
+pit = { git = "https://github.com/hhatto/pit-rs", branch = "master" }
+```
+
 ```rust
 extern crate pit;
 
@@ -28,7 +33,7 @@ fn main() {
 ```
 
 
-# for developer
+## for developer
 ```
 $ cargo test -- --test-threads=1
 ```
