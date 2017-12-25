@@ -1,0 +1,13 @@
+[package]
+name = "pit"
+version = "0.1.0"
+authors = ["Hideo Hattori <hhatto.jp@gmail.com>"]
+
+[dependencies]
+log = "0.3"
+env_logger = "0.4.3"
+yaml-rust = "0.3"
+
+[[example]]
+name = "hello"
+path = "examples/hello_pit.rs"
