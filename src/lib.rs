@@ -1,6 +1,3 @@
-#[macro_use]
-extern crate log;
-extern crate env_logger;
 extern crate yaml_rust;
 
 use std::fs::{File, Permissions, create_dir, set_permissions};
@@ -54,8 +51,7 @@ impl Pit {
     pub fn get(mut self, name: &str) -> Option<BTreeMap<String, String>> {
         let config = match self.load() {
             Ok(v) => Some(v),
-            Err(e) => {
-                error!("{:?}", e);
+            Err(_) => {
                 None
             },
         };
@@ -86,8 +82,7 @@ impl Pit {
         if !self.directory.exists() {
             match create_dir(self.directory.as_path()) {
                 Ok(()) => {},
-                Err(e) => {
-                    error!("create_dir(\"~/.pit\") fail: {:?}", e);
+                Err(_) => {
                     return Err("invalid pit config".to_string());
                 }
             }
@@ -103,7 +98,6 @@ impl Pit {
 
         let config_name = self.get_config_name();
         if config_name.is_empty() {
-            error!("invalid pit config");
             return Err("invalid pit config".to_string());
         }
         let _ = self.switch(config_name.as_str());
