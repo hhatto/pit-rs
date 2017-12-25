@@ -4,7 +4,7 @@
 
 ## Usage
 
-```
+```rust
 extern crate pit;
 
 use pit::Pit;
