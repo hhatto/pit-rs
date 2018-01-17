@@ -1,3 +1,46 @@
+//! # pit
+//!
+//! pit is account management tool.
+//!
+//! ## Usage
+//!
+//! ```toml
+//! [dependencies]
+//! pit = "*"
+//! ```
+//!
+//! ```sh
+//! $ mkdir -p ~/.pit
+//! $ echo "profile: default" > ~/.pit/pit.yaml
+//! $ echo "twitter.com:" >> ~/.pit/default.yaml
+//! $ echo "    username: foo" >> ~/.pit/default.yaml
+//! $ echo "    password: bar" >> ~/.pit/default.yaml
+//! ```
+//!
+//! ```rust
+//! extern crate pit;
+//!
+//! use pit::Pit;
+//!
+//! fn main() {
+//!     let p = Pit::new();
+//!     let config = p.get("twitter.com");
+//!     match config {
+//!         None => {
+//!             println!("not provide config value");
+//!             return;
+//!         },
+//!         Some(_) => {},
+//!     }
+//!
+//!     let config = config.unwrap();
+//!     let username = config.get("username").unwrap();
+//!     let password = config.get("password").unwrap();
+//!     println!("username={}, password={}", username, password);
+//! }
+//! ```
+//!
+
 extern crate yaml_rust;
 
 use std::fs::{File, Permissions, create_dir, set_permissions};
