@@ -2,6 +2,12 @@
 name = "pit"
 version = "0.1.0"
 authors = ["Hideo Hattori <hhatto.jp@gmail.com>"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/hhatto/pit-rs"
+keywords = ["account", "management", "pit"]
+readme = "README.md"
+description = "pit in Rust"
+documentation = "https://docs.rs/pit"
 
 [dependencies]
 yaml-rust = "0.3"
