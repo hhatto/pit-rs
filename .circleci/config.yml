@@ -38,10 +38,9 @@ jobs:
             - run:
                 name: Build and test
                 command: cargo test --verbose -- --test-threads=1
-
 workflows:
     version: 2
-    test_all:
+    build_and_test:
         jobs:
             - cargo_fetch
             - test:
