@@ -1,4 +1,4 @@
-# pit-rs
+# pit-rs [![Latest Version](https://img.shields.io/crates/v/pit.svg)](https://crates.io/crates/pit)
 
 [pit](https://github.com/cho45/pit) for [Rust](https://www.rust-lang.org/)
 
