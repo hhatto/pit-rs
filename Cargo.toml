@@ -8,9 +8,11 @@ keywords = ["account", "management", "pit"]
 readme = "README.md"
 description = "pit in Rust"
 documentation = "https://docs.rs/pit"
+edition = "2018"
 
 [dependencies]
 yaml-rust = "0.3"
+dirs = "2.0.1"
 
 [[example]]
 name = "hello"
