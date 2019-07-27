@@ -41,17 +41,16 @@
 //! ```
 //!
 
-extern crate yaml_rust;
-
 use std::fs::{File, Permissions, create_dir, set_permissions};
 use std::os::unix::fs::PermissionsExt;
-use std::env::home_dir;
 use std::path::{Path, PathBuf};
 use std::io::prelude::*;
 use std::io::{BufReader, BufWriter};
 use std::collections::BTreeMap;
 use yaml_rust::yaml::Yaml;
 use yaml_rust::YamlLoader;
+
+use dirs::home_dir;
 
 #[derive(Clone, Debug, Default)]
 pub struct Pit {
