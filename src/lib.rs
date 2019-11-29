@@ -18,8 +18,6 @@
 //! ```
 //!
 //! ```rust
-//! extern crate pit;
-//!
 //! use pit::Pit;
 //!
 //! fn main() {
