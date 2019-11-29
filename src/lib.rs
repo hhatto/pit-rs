@@ -60,13 +60,13 @@ pub struct Pit {
 impl Pit {
     pub fn new() -> Pit {
         let homedir = home_dir().expect("fail home_dir");
-        let pit_rootdir = homedir.join(Path::new(".pit"));
-        let config_path = pit_rootdir.join(Path::new("pit.yaml"));
-        let profile_path = pit_rootdir.join(Path::new("default.yaml"));
+        let directory = homedir.join(Path::new(".pit"));
+        let config_path = directory.join(Path::new("pit.yaml"));
+        let profile_path = directory.join(Path::new("default.yaml"));
         Self {
-            directory: pit_rootdir,
-            config_path: config_path,
-            profile_path: profile_path,
+            directory,
+            config_path,
+            profile_path,
         }
     }
 
@@ -95,21 +95,13 @@ impl Pit {
                 None
             },
         };
-        if config.is_none() {
-            return None;
-        }
+        config.as_ref()?;
         let n = name.to_string();
         let config = config.unwrap();
         let profile = config.as_hash().expect("fail to top level object")
-                           .get(&Yaml::String(n));
+                           .get(&Yaml::String(n))?;
         let mut ret: BTreeMap<String, String> = BTreeMap::new();
-        if profile.is_none() {
-            return None;
-        };
-        if profile.unwrap().as_hash().is_none() {
-            return None;
-        }
-        let ks = profile.unwrap().as_hash().unwrap();
+        let ks = profile.as_hash()?;
         for (k, v) in ks.iter() {
             let ret_k = k.as_str().unwrap().to_string();
             let ret_v = v.as_str().unwrap().to_string();
