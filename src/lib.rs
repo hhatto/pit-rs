@@ -146,7 +146,7 @@ impl Pit {
 
         if !self.profile_path.exists() {
             let mut f = BufWriter::new(File::create(&self.profile_path).expect("file create() error"));
-            let c = format!("--- {{}}");
+            let c = "--- {{}}".to_string();
             let _ = f.write_all(c.as_bytes());
             let _ = set_permissions(&self.profile_path, Permissions::from_mode(0o600));
         }
